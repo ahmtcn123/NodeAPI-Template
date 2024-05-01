@@ -1,0 +1,55 @@
+{
+  "name": "nodeapi-template",
+  "version": "1.0.0",
+  "description": "A template repository for quick starting node rest api",
+  "main": "dist/index.js",
+  "typings": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "run-script-os",
+    "dev:win32": "$env:MODE=\"DEV\"; nodemon ./src/index.ts",
+    "dev:darwin:linux": "export MODE=\"DEV\" && nodemon ./src/index.ts",
+    "eslint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmtcn123/NodeAPI-Template.git"
+  },
+  "keywords": [
+    "nodejs",
+    "node",
+    "rest-api",
+    "rest",
+    "js",
+    "ts",
+    "express"
+  ],
+  "author": "Ahmetcan Aksu <ahmetcanaksu@behemehal.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ahmtcn123/NodeAPI-Template/issues"
+  },
+  "homepage": "https://github.com/ahmtcn123/NodeAPI-Template#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.1.1",
+    "@swc/cli": "^0.3.12",
+    "@swc/core": "^1.4.17",
+    "eslint": "^9.1.1",
+    "globals": "^15.1.0",
+    "nodemon": "^3.1.0",
+    "run-script-os": "^1.1.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.8.0"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "@types/uuid": "^9.0.8",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "uuid": "^9.0.1",
+    "winston": "^3.13.0",
+    "zod": "^3.23.5"
+  }
+}

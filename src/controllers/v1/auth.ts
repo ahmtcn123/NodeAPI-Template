@@ -4,9 +4,11 @@ import { Request, Response } from 'express';
 import { user } from '../../services';
 import { ServiceResponse } from '../../services/utils';
 import { ResponseMessage } from '../../utils/response';
-import { LoginInput, UserSchema } from '../../services/modules/User/core/user';
+import { LoginInput, LoginInputSchema, UserSchema } from '../../services/modules/User/core/user';
+import { GET } from '../../utils/swagger';
 
 class Auth extends BaseController {
+    @GET("/v1/auth", LoginInputSchema)
     login = async (req: Request<LoginInput>, res: Response) => {
         let response = this.systemErrorResponse();
         try {

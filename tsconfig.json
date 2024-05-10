@@ -2,7 +2,7 @@
     "compilerOptions": {
         "outDir": "./built",
         "allowJs": false,
-        "target": "esnext",
+        "target": "es2022",
         "module": "CommonJS",
         "esModuleInterop": true,
         "strict": true

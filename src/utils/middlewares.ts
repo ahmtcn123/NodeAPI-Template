@@ -3,6 +3,7 @@ import { Request, Response, NextFunction } from "express";
 import { ZodObject, ZodRawShape } from "zod";
 import { ServiceResponse } from "../services/utils";
 import { ResponseMessage, ResponseStatus } from "./response";
+import logger from "./logger";
 
 //Write middleware for inserting flowId in request headers
 
@@ -30,7 +31,6 @@ const flowIdMiddleware = (req: any, _: Response, next: NextFunction) => {
  */
 function validateJsonBodyMiddleware<T extends ZodRawShape>(body: ZodObject<T>) {
     return (req: Request, res: Response, next: NextFunction) => {
-        console.log(req.body);
         const parsedBody = body.safeParse(req.body);
         if (parsedBody.success) {
             req.body = parsedBody.data;
@@ -39,7 +39,9 @@ function validateJsonBodyMiddleware<T extends ZodRawShape>(body: ZodObject<T>) {
             const errorMessages = parsedBody.error?.errors?.map(
                 (error) => error
             );
-            console.log(errorMessages);
+
+            logger.error(`Invalid input: ${JSON.stringify(errorMessages)}`);
+
             new ServiceResponse()
                 .setStatus(ResponseStatus.BAD_REQUEST)
                 .setMessage(errorMessages[0].message || ResponseMessage.INVALID_INPUT)

@@ -28,6 +28,7 @@ export const LoginInputSchema = z.object({
   }).max(255, {
     message: "password_is_too_long",
   })
-}).required();
+}).required().describe("LoginInput");
 
 export type LoginInput = z.infer<typeof LoginInputSchema>;
+ 

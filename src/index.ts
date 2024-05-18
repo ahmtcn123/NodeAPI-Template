@@ -25,5 +25,5 @@ config(app);
 
 
 app.listen(process.env.PORT, () => {
-    logger.info(`Example app listening on port ${process.env.PORT}`)
+    logger.info(`Example app listening on port http://localhost:${process.env.PORT}`)
 });
